@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlascoBourja</string>
+    <string name="button_name">Un clic</string>
+    <string name="hello">Bonjour le monde!</string>
+</resources>
