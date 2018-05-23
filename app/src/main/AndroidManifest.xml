@@ -18,7 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondeActivity"></activity>
+        <activity android:name=".SecondeActivity" />
+
+        <service
+            android:name=".GetSiteService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
