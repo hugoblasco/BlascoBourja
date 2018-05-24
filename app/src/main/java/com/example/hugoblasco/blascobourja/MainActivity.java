@@ -48,18 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        final TextView tv_hw = (TextView) findViewById(R.id.tv_hello_world);
-        //Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
-        String now = DateUtils.formatDateTime(getApplicationContext(), (new Date()).getTime(), DateFormat.FULL);
 
         IntentFilter intentFilter = new IntentFilter(SITE_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new SiteUpdate(),intentFilter);
         setContentView(R.layout.activity_main);
 
-        //tv_hw.setText(now);
         GetSiteService.startActionGetSite(MainActivity.this);
-
-        //TextView test = findViewById(R.id.test);
 
         rv = findViewById(R.id.rv_site);
         rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
@@ -68,26 +62,16 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(sa);
 
         // faire un bouton ou quand on clic dessus ça affiche une boite de dialogue ou on rentre le nom du site qu'on veut
-        //exminer et ça nous envoie sur la deuxieme activity avec les details du hack
-        final DatePickerDialog dpd;
-        DatePickerDialog.OnDateSetListener odls = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                String date = i2+"/"+i1+"/"+i;
-                tv_hw.setText(date);
-            }
-        };
-        dpd = new DatePickerDialog(this, odls, 2018, 05, 11);
+        //examiner et ça nous envoie sur la deuxieme activity avec les details du hack
 
-        /*btn_hw.setOnClickListener(new View.OnClickListener() {
+        /*btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
-                dpd.show();
+                //Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
                 //notification_test(); //fait crash l'appli
                 secondeActivity();
             }
-        }); */
+        });*/
 
 
     }
@@ -100,37 +84,6 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         nm.notify(1, notif.build());
     }
-
-    /*public ArrayList<JSONObject> getSiteFromFile() {
-        try {
-            InputStream is = new FileInputStream(getCacheDir() + "/" + "site.json");
-            byte[] buffer = new byte[is.available()];
-            is.read(buffer);
-            is.close();
-
-            JSONObject obj = new JSONObject(new String(buffer, "UTF-8"));
-
-            obj = obj.getJSONObject("data");
-
-            Iterator<String> keys = obj.keys();
-
-            ArrayList<JSONObject> arrayOfObject = new ArrayList<>();
-
-            while (keys.hasNext()) {
-                arrayOfObject.add(obj.getJSONObject(keys.next()));
-            }
-
-            return arrayOfObject;
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }*/
 
     public JSONArray getSiteFromFile(){
         try {
@@ -176,15 +129,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(SiteHolder holder, int position) {
+        public void onBindViewHolder(SiteHolder holder, final int position) {
 
             try {
-                //obj = site.getJSONArray(0);
-                //ici est l'erreur : faire en fonction de
-                // la taille du tableau avec getItemCount
-                //TextView test = findViewById(R.id.test);
-                //test.setText(site.getJSONObject(0).getString("Title")); //position ou 0 ?
                 holder.name.setText(site.getJSONObject(position).getString("Title"));
+                holder.date.setText(site.getJSONObject(position).getString("BreachDate"));
+                holder.btn_info.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+
+                        try {
+                            Intent intent = new Intent(MainActivity.this, SecondeActivity.class);
+                            //intent.putExtra("id", site.getJSONObject(position).getInt("id"));
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(),site.getJSONObject(position).getString("Title") , Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -199,17 +161,19 @@ public class MainActivity extends AppCompatActivity {
         public class SiteHolder extends RecyclerView.ViewHolder {
 
             public TextView name;
+            public Button btn_info;
+            public TextView date;
 
             public SiteHolder(View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.rv_site_element_name);
-
+                date = itemView.findViewById(R.id.rv_site_element_date);
+                btn_info = itemView.findViewById(R.id.rv_site_element_button);
             }
         }
 
         public void setNewSite(JSONArray updated) {
             site = updated;
-            Log.d("tag", "update");
             notifyDataSetChanged();
         }
 
