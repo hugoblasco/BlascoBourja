@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         //TextView test = findViewById(R.id.test);
 
         rv = findViewById(R.id.rv_site);
-        rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
         SiteAdapter sa = new SiteAdapter(getSiteFromFile());
         rv.setAdapter(sa);
