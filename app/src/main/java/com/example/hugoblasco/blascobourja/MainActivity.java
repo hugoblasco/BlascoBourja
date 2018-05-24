@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         final TextView tv_hw = (TextView) findViewById(R.id.tv_hello_world);
-        Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
+        //Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
         String now = DateUtils.formatDateTime(getApplicationContext(), (new Date()).getTime(), DateFormat.FULL);
 
         IntentFilter intentFilter = new IntentFilter(SITE_UPDATE);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         //tv_hw.setText(now);
         GetSiteService.startActionGetSite(MainActivity.this);
 
-        TextView test = findViewById(R.id.test);
+        //TextView test = findViewById(R.id.test);
 
         rv = findViewById(R.id.rv_site);
         rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -182,9 +182,9 @@ public class MainActivity extends AppCompatActivity {
                 //obj = site.getJSONArray(0);
                 //ici est l'erreur : faire en fonction de
                 // la taille du tableau avec getItemCount
-                TextView test = findViewById(R.id.test);
-                test.setText(site.getJSONObject(position).getString("Title"));
-                holder.name.setText(site.getJSONObject(0).getString("Title"));
+                //TextView test = findViewById(R.id.test);
+                //test.setText(site.getJSONObject(0).getString("Title")); //position ou 0 ?
+                holder.name.setText(site.getJSONObject(position).getString("Title"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -208,12 +208,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void setNewSite(JSONArray updated) {
+            site = updated;
+            Log.d("tag", "update");
             notifyDataSetChanged();
         }
 
     }
 
-    //notifyDataChanged qui ne marche pas
 
 
     @Override

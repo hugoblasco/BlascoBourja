@@ -62,15 +62,15 @@ public class GetSiteService extends IntentService {
      * parameters.
      */
 
-    private void copyInputStreamToFile(InputStream in, File file) {
+    private void copyInputStreamToFile(InputStream in,File file){
         try {
-            OutputStream out = new FileOutputStream(file);
+        OutputStream out = new FileOutputStream(file);
             byte[] buf = new byte[1024];
             int len;
-            while((len = in.read(buf)) > 0) {
-                out.write(buf,0,len);
-            }
+            while((len=in.read(buf))>0){
+                out.write(buf,0,len); }
             out.close();
+            in.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -81,7 +81,7 @@ public class GetSiteService extends IntentService {
         Log.i("tag", "message");
         URL url = null;
         try {
-            url = new URL("https://haveibeenpwned.com/api/v2/breaches"); //https://haveibeenpwned.com/api/v2/breaches
+            url = new URL("https://haveibeenpwned.com/api/v2/breaches");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();

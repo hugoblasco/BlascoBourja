@@ -21,7 +21,7 @@
         <activity android:name=".SecondeActivity" />
 
         <service
-            android:name=".GetSiteService"
+            android:name="GetSiteService"
             android:exported="false"></service>
     </application>
 
