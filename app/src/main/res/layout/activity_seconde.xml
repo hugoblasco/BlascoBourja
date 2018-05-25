@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_donnees"
-        android:text="Accès vers le site : "
+        android:text="Nom de domaine du site : "
         android:textSize="22sp"
         />
 
@@ -70,12 +70,30 @@
         android:paddingEnd="20dp"
         />
 
+    <Button
+        android:id="@+id/btn_access"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_access"
+        android:paddingEnd="20dp"
+        android:text="Accèder au site"/>
+
+    <TextView
+        android:id="@+id/tv_desc_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_access"
+        android:text="Description de l'attaque :"
+        android:textSize="22sp"
+        />
+
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_access"
+        android:layout_below="@id/tv_desc_title"
         android:textSize="18sp"
         />
+
 
 </RelativeLayout>
