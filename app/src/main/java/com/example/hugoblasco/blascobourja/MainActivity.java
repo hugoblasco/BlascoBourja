@@ -32,6 +32,7 @@ import org.w3c.dom.Text;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -132,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(SiteHolder holder, final int position) {
 
             try {
+
+                //Toast.makeText(getApplicationContext(), dodo, Toast.LENGTH_LONG).show();
                 holder.name.setText(site.getJSONObject(position).getString("Title"));
                 holder.date.setText(site.getJSONObject(position).getString("BreachDate"));
                 holder.btn_info.setOnClickListener(new View.OnClickListener(){
@@ -139,7 +142,15 @@ public class MainActivity extends AppCompatActivity {
 
                         try {
                             Intent intent = new Intent(MainActivity.this, SecondeActivity.class);
-                            //intent.putExtra("id", site.getJSONObject(position).getInt("id"));
+                            intent.putExtra("title", site.getJSONObject(position).getString("Title"));
+                            String donnees = "";
+                            JSONArray data = site.getJSONObject(position).getJSONArray("DataClasses");
+                            for (int i=0; i<data.length(); i++) {
+                                donnees = donnees  + data.get(i)+ "\n";
+                            }
+                            intent.putExtra("donnees", donnees);
+                            intent.putExtra("access", site.getJSONObject(position).getString("Domain"));
+                            intent.putExtra("desc", site.getJSONObject(position).getString("Description"));
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),site.getJSONObject(position).getString("Title") , Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {

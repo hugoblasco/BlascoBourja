@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hugoblasco.blascobourja.SecondeActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_site"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:layout_alignParentTop="true"
+        android:textSize="24sp"
+        android:text="Detail du site hacké"
+        />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name"
+        android:textSize="18sp"
+        android:paddingBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_detail"
+        android:text="Nom du site :"
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_nom"
+        android:text="Données compromises : "
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_donnees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_data"
+        android:textSize="18sp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_domain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_donnees"
+        android:text="Accès vers le site : "
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_access"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_domain"
+        android:textSize="18sp"
+        android:paddingEnd="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_access"
+        android:textSize="18sp"
+        />
+
+</RelativeLayout>
