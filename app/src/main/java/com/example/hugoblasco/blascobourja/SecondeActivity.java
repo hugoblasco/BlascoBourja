@@ -18,7 +18,6 @@ public class SecondeActivity extends AppCompatActivity {
     TextView site_hack;
     TextView site_access;
     Button btn_access;
-    TextView site_description;
 
 
     @Override
@@ -30,7 +29,6 @@ public class SecondeActivity extends AppCompatActivity {
         site_name2 = findViewById(R.id.tv_name);
         site_hack = findViewById(R.id.tv_donnees);
         site_access = findViewById(R.id.tv_access);
-        site_description = findViewById(R.id.tv_desc);
         btn_access = findViewById(R.id.btn_access);
 
         Intent intent = getIntent();
@@ -49,7 +47,6 @@ public class SecondeActivity extends AppCompatActivity {
             site_name.setText(recup_titre);
             site_hack.setText(recup_data);
             site_access.setText(recup_access);
-            site_description.setText(recup_desc);
 
             final String http = "http://";
             final String finalRecup_access = recup_access;

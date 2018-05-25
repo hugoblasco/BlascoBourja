@@ -5,4 +5,8 @@
         android:title="Toast me"
         android:icon="@android:drawable/ic_input_get" />
 
+    <item
+        android:id="@+id/language"
+        android:title="" />
+
 </menu>

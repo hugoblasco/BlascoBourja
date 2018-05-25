@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BlascoBourja</string>
-    <string name="button_name">Un clic</string>
-    <string name="hello">Bonjour le monde!</string>
+    <string name="btn_access">Accéder au site</string>
+    <string name="btn_info">Plus d\'info</string>
+    <string name="titleMain">Liste des sites hackés</string>
+    <string name="titleSeconde">Détails du site hacké</string>
+    <string name="nomSite">Nom du site</string>
+    <string name="data">Données compromises</string>
+    <string name="domain">Nom de domaine du site</string>
+    <string name="barTitle">Changer la langue</string>
+    <string name="barToast">Toast moi</string>
+
 </resources>

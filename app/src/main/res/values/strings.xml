@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">BlascoBourja</string>
-    <string name="button_name">Click</string>
-    <string name="hello">Hello World!</string>
-    <string name="msg">Message</string>
+    <string name="btn_access">Access to website</string>
+    <string name="btn_info">More Info</string>
+    <string name="titleMain">Hacked sites list</string>
+    <string name="titleSeconde">Hacked site details</string>
+    <string name="nomSite">Website name</string>
+    <string name="data">Corrupted data</string>
+    <string name="domain">Website domain name</string>
+    <string name="barTitle">Change langage</string>
+    <string name="barToast">Toast me</string>
+
 </resources>

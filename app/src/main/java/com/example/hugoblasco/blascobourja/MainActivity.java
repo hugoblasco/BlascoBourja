@@ -1,6 +1,5 @@
 package com.example.hugoblasco.blascobourja;
 
-import android.app.DatePickerDialog;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,20 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         SiteAdapter sa = new SiteAdapter(getSiteFromFile());
         rv.setAdapter(sa);
-
-        // faire un bouton ou quand on clic dessus ça affiche une boite de dialogue ou on rentre le nom du site qu'on veut
-        //examiner et ça nous envoie sur la deuxieme activity avec les details du hack
-
-        /*btn_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
-                //notification_test(); //fait crash l'appli
-                secondeActivity();
-            }
-        });*/
-
-
     }
 
     public void notification_test() {
@@ -150,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                             intent.putExtra("donnees", donnees);
                             intent.putExtra("access", site.getJSONObject(position).getString("Domain"));
-                            intent.putExtra("desc", site.getJSONObject(position).getString("Description"));
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),site.getJSONObject(position).getString("Title") , Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
