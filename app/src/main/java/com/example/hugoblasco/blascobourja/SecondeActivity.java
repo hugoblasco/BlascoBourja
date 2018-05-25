@@ -37,12 +37,10 @@ public class SecondeActivity extends AppCompatActivity {
             String recup_titre = "";
             String recup_data = "";
             String recup_access = "";
-            String recup_desc = "";
             if (intent.hasExtra("title")) {
                 recup_titre = intent.getStringExtra("title");
                 recup_data = intent.getStringExtra("donnees");
                 recup_access = intent.getStringExtra("access");
-                recup_desc = intent.getStringExtra("desc");
             }
             site_name.setText(recup_titre);
             site_hack.setText(recup_data);

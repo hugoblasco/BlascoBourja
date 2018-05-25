@@ -6,7 +6,8 @@
         android:icon="@android:drawable/ic_input_get" />
 
     <item
-        android:id="@+id/language"
-        android:title="" />
+        android:id="@+id/notif"
+        android:icon="@drawable/applogo"
+        android:title="@string/menuNotif" />
 
 </menu>

@@ -43,13 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-
 
         IntentFilter intentFilter = new IntentFilter(SITE_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new SiteUpdate(),intentFilter);
-        setContentView(R.layout.activity_main);
+
 
         GetSiteService.startActionGetSite(MainActivity.this);
 
@@ -58,13 +57,14 @@ public class MainActivity extends AppCompatActivity {
 
         SiteAdapter sa = new SiteAdapter(getSiteFromFile());
         rv.setAdapter(sa);
+
     }
 
     public void notification_test() {
         NotificationCompat.Builder notif = new NotificationCompat.Builder(MainActivity.this);
-        notif.setContentText("bonjour");
+        notif.setContentText("notification text");
         notif.setSmallIcon(R.drawable.ic_launcher_foreground);
-        notif.setContentTitle("Notif");
+        notif.setContentTitle("BlascoBourja Notif");
         NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         nm.notify(1, notif.build());
     }
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 name = itemView.findViewById(R.id.rv_site_element_name);
                 date = itemView.findViewById(R.id.rv_site_element_date);
                 btn_info = itemView.findViewById(R.id.rv_site_element_button);
+
             }
         }
 
@@ -185,6 +186,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.toast:
                 Toast.makeText(getApplicationContext(), "Toast actionBar", Toast.LENGTH_LONG).show();
+                break;
+
+            case R.id.notif:
+                notification_test();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -10,5 +10,7 @@
     <string name="domain">Nom de domaine du site</string>
     <string name="barTitle">Changer la langue</string>
     <string name="barToast">Toast moi</string>
+    <string name="btnLang">English</string>
+    <string name="menuNotif">Notification</string>
 
 </resources>

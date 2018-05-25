@@ -9,5 +9,7 @@
     <string name="domain">Website domain name</string>
     <string name="barTitle">Change langage</string>
     <string name="barToast">Toast me</string>
+    <string name="btnLang">Français</string>
+    <string name="menuNotif">Notification</string>
 
 </resources>

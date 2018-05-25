@@ -36,10 +36,9 @@
         android:textColor="@android:color/white"
         app:backgroundTint="@android:color/darker_gray"
         android:layout_alignParentEnd="true"
-        android:text="@string/btn_info" />
+        android:text="@string/btn_info"
+        tools:ignore="RelativeOverlap" />
 
 
 
 </RelativeLayout>
-
-    <!--  linear layout-->
